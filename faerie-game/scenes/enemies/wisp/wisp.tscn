@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dk2v05sg3ek33"]
+
+[ext_resource type="Script" uid="uid://b1dre1hrp64r1" path="res://scenes/enemies/wisp/wisp.gd" id="1_5cohn"]
+
+[node name="Wisp" type="Node2D" unique_id=1060238714]
+script = ExtResource("1_5cohn")
+
+[node name="ColorRectBack" type="ColorRect" parent="." unique_id=2102985044]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.9999995
+offset_top = -7.0
+offset_right = 8.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.7853982
+pivot_offset = Vector2(8, 8)
+color = Color(1, 1, 1, 0.5019608)
+
+[node name="ColorRectFore" type="ColorRect" parent="." unique_id=1866253215]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.0
+offset_top = -6.0
+offset_right = 7.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(7, 7)
+color = Color(0.41960785, 0.7411765, 0.8745098, 0.5019608)
+
+[node name="ColorRectMid" type="ColorRect" parent="." unique_id=4984827]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -3.0000005
+offset_right = 4.0
+offset_bottom = 4.9999995
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.7853982
+pivot_offset = Vector2(4, 4)
+color = Color(0.27058825, 0.45490196, 1, 0.5019608)

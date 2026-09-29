@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://copm0qkup78wk"]
+
+[ext_resource type="PackedScene" uid="uid://dxc6fjsg7n66" path="res://scenes/player/player.tscn" id="1_6t4b0"]
+[ext_resource type="Texture2D" uid="uid://d1xwiw7txcpxr" path="res://resources/faeries/plant/emily.png" id="2_w5fu3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_32gta"]
+radius = 11.0
+height = 66.0
+
+[node name="Player" unique_id=517714975 instance=ExtResource("1_6t4b0")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="1" unique_id=1670496347]
+position = Vector2(16, 32)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_w5fu3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2" unique_id=1750790871]
+position = Vector2(17, 34)
+shape = SubResource("CapsuleShape2D_32gta")

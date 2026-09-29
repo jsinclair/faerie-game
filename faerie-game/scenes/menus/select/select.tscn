@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://b6v5noyjjviub"]
+
+[ext_resource type="Script" uid="uid://crsqjxfpmentf" path="res://scenes/menus/select/select.gd" id="1_hu10u"]
+
+[node name="Select" type="Control" unique_id=509887993]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hu10u")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=337218910]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1596634765]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=614375653]
+layout_mode = 2
+text = "Select Your Faerie"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=761057738]
+layout_mode = 2
+alignment = 1
+
+[node name="PlantButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=72139659]
+layout_mode = 2
+text = "Plant"
+
+[node name="IceButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=332617694]
+layout_mode = 2
+text = "Ice"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/PlantButton" to="." method="_on_plant_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/IceButton" to="." method="_on_ice_button_pressed"]

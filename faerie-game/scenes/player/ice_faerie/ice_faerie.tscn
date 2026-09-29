@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bilhst3jfuxyv"]
+
+[ext_resource type="PackedScene" uid="uid://dxc6fjsg7n66" path="res://scenes/player/player.tscn" id="1_53cbu"]
+[ext_resource type="Texture2D" uid="uid://bmrytldt17he4" path="res://resources/faeries/ice/standing.png" id="2_i1xb6"]
+[ext_resource type="Script" uid="uid://0t7d0wpofg4d" path="res://scenes/player/ice_faerie/ice_faerie.gd" id="2_jb17o"]
+[ext_resource type="Texture2D" uid="uid://4iitajd8un43" path="res://resources/faeries/ice/flapping.png" id="3_jb17o"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_32gta"]
+animations = [{
+"frames": [{
+"duration": 0.4,
+"texture": ExtResource("2_i1xb6")
+}, {
+"duration": 0.4,
+"texture": ExtResource("3_jb17o")
+}],
+"loop": 1,
+"name": &"flying",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i1xb6")
+}],
+"loop": 1,
+"name": &"standing",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i1xb6"]
+radius = 15.033297
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_32gta"]
+size = Vector2(10, 32)
+
+[node name="Player" unique_id=517714975 instance=ExtResource("1_53cbu")]
+script = ExtResource("2_jb17o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="1" unique_id=987539361]
+position = Vector2(22, 23)
+scale = Vector2(0.08, 0.08)
+sprite_frames = SubResource("SpriteFrames_32gta")
+animation = &"flying"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2" unique_id=2345704]
+position = Vector2(21, 12)
+shape = SubResource("CircleShape2D_i1xb6")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="3" unique_id=349002770]
+position = Vector2(19, 41)
+shape = SubResource("RectangleShape2D_32gta")

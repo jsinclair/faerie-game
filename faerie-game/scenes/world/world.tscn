@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://ce7wxscsvxwq"]
+
+[ext_resource type="Script" uid="uid://dha5g6txv8i68" path="res://scenes/world/world.gd" id="1_1fp7r"]
+[ext_resource type="PackedScene" uid="uid://dqr643aik2i0e" path="res://scenes/terrain/ground.tscn" id="1_sl2e5"]
+[ext_resource type="PackedScene" uid="uid://djplo5njt3dhd" path="res://scenes/hud/HUD.tscn" id="4_6m72w"]
+[ext_resource type="PackedScene" uid="uid://by7v37sk2ybxt" path="res://scenes/terrain/shrub.tscn" id="5_v5dby"]
+[ext_resource type="PackedScene" uid="uid://dk2v05sg3ek33" path="res://scenes/enemies/wisp/wisp.tscn" id="6_t5ptc"]
+
+[node name="World" type="Node2D" unique_id=509986533]
+script = ExtResource("1_1fp7r")
+ground_scene = ExtResource("1_sl2e5")
+shrub_scene = ExtResource("5_v5dby")
+wisp_scene = ExtResource("6_t5ptc")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=75382766]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.7058824, 1, 1, 1)
+
+[node name="Wisp" parent="." unique_id=1060238714 instance=ExtResource("6_t5ptc")]
+position = Vector2(200, 326)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1487499669]
+
+[node name="Hud" parent="CanvasLayer" unique_id=393382830 instance=ExtResource("4_6m72w")]
+
+[connection signal="leave_game" from="CanvasLayer/Hud" to="." method="_on_hud_leave_game"]

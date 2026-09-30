@@ -2,11 +2,12 @@ extends Node2D
 
 const rotation_speed = PI
 const move_target_offset = 60
-const speed = 50
+const speed = 30
 
 var move_target: Vector2
 var use_wisp_color = true
 var custom_color: Color
+var visibility_time = randf_range(2, 4)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,3 +35,20 @@ func _process(delta: float) -> void:
 	else:
 		position.x = move_toward(position.x, move_target.x, speed * delta)
 		position.y = move_toward(position.y, move_target.y, speed * delta)
+	
+	update_visibility(delta)
+	
+	
+func update_visibility(delta: float) -> void:
+	visibility_time -= delta
+	
+	if visibility_time <= 0:
+		visibility_time += randf_range(2, 4)
+		var tween := create_tween()
+		if visible:
+			tween.tween_property(self, "modulate:a", 0.0, 1.0)
+			tween.tween_callback(hide)
+		else:
+			show()
+			tween.tween_property(self, "modulate:a", 1.0, 1.0)
+		

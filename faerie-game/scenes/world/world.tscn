@@ -17,9 +17,6 @@ offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.7058824, 1, 1, 1)
 
-[node name="Wisp" parent="." unique_id=1060238714 instance=ExtResource("6_t5ptc")]
-position = Vector2(200, 326)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1487499669]
 
 [node name="Hud" parent="CanvasLayer" unique_id=393382830 instance=ExtResource("4_6m72w")]

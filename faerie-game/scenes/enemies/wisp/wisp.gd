@@ -5,7 +5,6 @@ const move_target_offset = 60
 const speed = 30
 
 var move_target: Vector2
-var use_wisp_color = true
 var custom_color: Color
 var visibility_time = randf_range(2, 4)
 
@@ -51,4 +50,3 @@ func update_visibility(delta: float) -> void:
 		else:
 			show()
 			tween.tween_property(self, "modulate:a", 1.0, 1.0)
-		

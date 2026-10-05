@@ -7,7 +7,7 @@ extends Node2D
 const SPAWN_TIME = 1
 var sum_time = 0
 
-const WORLD_WIDTH = 1152
+const WORLD_WIDTH = 1152.0
 const WORLD_HEIGHT = 648
 const GROUND_HEIGHT = 16
 const GROUND_WIDTH = 128

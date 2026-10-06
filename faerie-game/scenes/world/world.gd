@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var ground_scene: PackedScene
+@export var gravel_scene: PackedScene
 @export var shrub_scene: PackedScene
 @export var wisp_scene: PackedScene
 
@@ -9,10 +10,9 @@ var sum_time = 0
 
 const WORLD_WIDTH = 1152.0
 const WORLD_HEIGHT = 648
-const GROUND_HEIGHT = 16
-const GROUND_WIDTH = 128
-const MIN_GAP_WIDTH = 30
-const MAX_GAP_WIDTH = 90
+const FLOOR_HEIGHT = 50
+const MIN_GAP_WIDTH = 40
+const MAX_GAP_WIDTH = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,7 +20,7 @@ func _ready() -> void:
 	player.position = Vector2(328, 288)
 	add_child(player)
 	
-	var level = WORLD_HEIGHT - (GROUND_HEIGHT * 3)
+	var level = WORLD_HEIGHT - FLOOR_HEIGHT
 	var max_height_diff = WORLD_HEIGHT * 0.3
 	for i in 3:
 		generate_floor(level, max_height_diff * 0.3, i)
@@ -29,6 +29,12 @@ func _ready() -> void:
 		
 func generate_floor(at_height: float, max_height_diff: float, gaps: int) -> void:
 	var current_pos = Vector2(-100, at_height)
+	
+	var LAND_SCENES = [
+			ground_scene,
+			gravel_scene,
+			preload("res://scenes/terrain/land/dirt/dirt.tscn"),
+	]
 	
 	var gap_positions := []
 	if gaps > 0:
@@ -45,15 +51,17 @@ func generate_floor(at_height: float, max_height_diff: float, gaps: int) -> void
 			gap_positions.remove_at(0)
 		
 		var segment_rotation = PI * randf_range(-0.15, 0.15)
+		
+		# Instantiate a random land section
+		var land = LAND_SCENES.pick_random().instantiate()
 	
 		# Attempt to stop floor gradients from varying too greatly
-		if abs(at_height - (current_pos.y + (GROUND_WIDTH * sin(segment_rotation)))) > max_height_diff:
+		if abs(at_height - (current_pos.y + (land.WIDTH * sin(segment_rotation)))) > max_height_diff:
 			segment_rotation *= -1
 		
-		var ground = ground_scene.instantiate()
-		ground.position = Vector2(current_pos.x, current_pos.y)
-		ground.rotation += segment_rotation
-		add_child(ground)
+		land.position = Vector2(current_pos.x, current_pos.y)
+		land.rotation += segment_rotation
+		add_child(land)
 		
 		# Possibly add a shrub
 		if randf() >= 0.4:
@@ -64,12 +72,12 @@ func generate_floor(at_height: float, max_height_diff: float, gaps: int) -> void
 			var x_pos_mod = randf_range(0.15, 0.85)
 			var shrub = shrub_scene.instantiate()
 			shrub.position = Vector2(
-					current_pos.x + ((GROUND_WIDTH * x_pos_mod) * cos(segment_rotation)), 
-					current_pos.y + ((GROUND_WIDTH * x_pos_mod) * sin(segment_rotation)) + y_offset)
+					current_pos.x + ((land.WIDTH * x_pos_mod) * cos(segment_rotation)), 
+					current_pos.y + ((land.WIDTH * x_pos_mod) * sin(segment_rotation)) + y_offset)
 			add_child(shrub)
 		
-		current_pos.x += GROUND_WIDTH * cos(segment_rotation)
-		current_pos.y += GROUND_WIDTH * sin(segment_rotation)
+		current_pos.x += land.WIDTH * cos(segment_rotation)
+		current_pos.y += land.WIDTH * sin(segment_rotation)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

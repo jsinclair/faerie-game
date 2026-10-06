@@ -1,18 +1,21 @@
 [gd_scene format=3 uid="uid://dqr643aik2i0e"]
 
+[ext_resource type="Script" uid="uid://c0aywn5uonhyc" path="res://scenes/terrain/land/ground/ground.gd" id="1_m8krt"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqfgo"]
-size = Vector2(128, 16)
+size = Vector2(128, 24)
 
 [node name="Ground" type="Node2D" unique_id=1487645526]
+script = ExtResource("1_m8krt")
 metadata/_edit_group_ = true
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1259152592]
 offset_right = 128.0
-offset_bottom = 16.0
+offset_bottom = 24.0
 color = Color(0, 0.59651214, 3.85046e-07, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=234649578]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1794745306]
-position = Vector2(64, 8)
+position = Vector2(64, 12)
 shape = SubResource("RectangleShape2D_kqfgo")

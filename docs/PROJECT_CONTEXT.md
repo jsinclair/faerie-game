@@ -286,10 +286,10 @@ The current procedural generator has proven the basic concept. The next goal is 
 
 ### Terrain Types
 
-- [ ] Add a second terrain type.
-- [ ] Give it meaningfully different dimensions/properties from the existing terrain.
-- [ ] Add at least one additional terrain type if useful for testing.
-- [ ] Update generation so different terrain types can be mixed.
+- [x] Add a second terrain type.
+- [x] Give it meaningfully different dimensions/properties from the existing terrain.
+- [x] Add at least one additional terrain type if useful for testing.
+- [x] Update generation so different terrain types can be mixed.
 
 Do **not** decide the complete terrain architecture before doing this.
 
@@ -297,10 +297,10 @@ Let the second/third concrete terrain types reveal what they genuinely have in c
 
 ### Terrain Data and Architecture
 
-- [ ] Move terrain-specific properties such as width out of `World`.
+- [x] Move terrain-specific properties such as width out of `World`.
 - [ ] Decide how terrain exposes the information the generator needs.
 - [ ] Decide whether a shared Terrain script/base scene is justified.
-- [ ] Remove assumptions in `World` that depend on every terrain section having the same dimensions.
+- [x] Remove assumptions in `World` that depend on every terrain section having the same dimensions.
 
 Possible approaches include:
 

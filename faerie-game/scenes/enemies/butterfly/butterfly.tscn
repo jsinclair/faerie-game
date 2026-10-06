@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://kcs63c65vr0e"]
+
+[ext_resource type="Script" uid="uid://dleviblpm6gfd" path="res://scenes/enemies/butterfly/butterfly.gd" id="1_wffex"]
+[ext_resource type="Texture2D" uid="uid://cscjwdis0hkte" path="res://resources/critters/butterfly.png" id="1_xogko"]
+[ext_resource type="Texture2D" uid="uid://dd1x7h38bt7ql" path="res://resources/critters/butterfly_flapping.png" id="2_wffex"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_32gta"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("1_xogko")
+}, {
+"duration": 0.5,
+"texture": ExtResource("2_wffex")
+}],
+"loop": 1,
+"name": &"flying",
+"speed": 5.0
+}]
+
+[node name="Butterfly" type="Node2D" unique_id=1196706189]
+script = ExtResource("1_wffex")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=808096377]
+position = Vector2(1.0000007, -6.9999995)
+rotation = 4.1887903
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_32gta")
+animation = &"flying"

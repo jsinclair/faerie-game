@@ -14,6 +14,8 @@ const FLOOR_HEIGHT = 50
 const MIN_GAP_WIDTH = 40
 const MAX_GAP_WIDTH = 100
 
+var make_wisp = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var player = CharacterData.selected_character.instantiate()
@@ -87,15 +89,25 @@ func _process(delta: float) -> void:
 	while sum_time > SPAWN_TIME:
 		sum_time -= SPAWN_TIME
 		
-		var wisp = wisp_scene.instantiate()
-		wisp.custom_color = Color(randf(), randf(), randf())
-		wisp.position = Vector2(
-			randf_range(0, 1152),
-			randf_range(0, 648)
-		)
-		wisp.hide()
-		wisp.modulate.a = 0
-		add_child(wisp)
+		if make_wisp:
+			var wisp = wisp_scene.instantiate()
+			wisp.custom_color = Color(randf(), randf(), randf())
+			wisp.position = Vector2(
+				randf_range(0, 1152),
+				randf_range(0, 648)
+			)
+			wisp.hide()
+			wisp.modulate.a = 0
+			add_child(wisp)
+		else:
+			var butterfly = preload("res://scenes/enemies/butterfly/butterfly.tscn").instantiate()
+			butterfly.position = Vector2(
+				randf_range(0, 1152),
+				randf_range(0, 648)
+			)
+			add_child(butterfly)
+		
+		make_wisp = !make_wisp
 
 
 func _on_hud_leave_game() -> void:

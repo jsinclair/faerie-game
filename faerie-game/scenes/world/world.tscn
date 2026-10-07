@@ -1,15 +1,11 @@
 [gd_scene format=3 uid="uid://ce7wxscsvxwq"]
 
 [ext_resource type="Script" uid="uid://dha5g6txv8i68" path="res://scenes/world/world.gd" id="1_1fp7r"]
-[ext_resource type="PackedScene" uid="uid://dqr643aik2i0e" path="res://scenes/terrain/land/ground/ground.tscn" id="1_sl2e5"]
-[ext_resource type="PackedScene" uid="uid://cs5t0b0q5t6sj" path="res://scenes/terrain/land/gravel/gravel.tscn" id="3_t5ptc"]
 [ext_resource type="PackedScene" uid="uid://djplo5njt3dhd" path="res://scenes/hud/HUD.tscn" id="4_6m72w"]
 [ext_resource type="PackedScene" uid="uid://dk2v05sg3ek33" path="res://scenes/enemies/wisp/wisp.tscn" id="6_t5ptc"]
 
 [node name="World" type="Node2D" unique_id=509986533]
 script = ExtResource("1_1fp7r")
-ground_scene = ExtResource("1_sl2e5")
-gravel_scene = ExtResource("3_t5ptc")
 wisp_scene = ExtResource("6_t5ptc")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=75382766]

@@ -22,8 +22,8 @@ animations = [{
 script = ExtResource("1_wffex")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=808096377]
-position = Vector2(1.0000007, -6.9999995)
+position = Vector2(1.0000002, -3.0000002)
 rotation = 4.1887903
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_32gta")
 animation = &"flying"

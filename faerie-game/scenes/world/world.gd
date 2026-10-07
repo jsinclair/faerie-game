@@ -1,7 +1,5 @@
 extends Node2D
 
-@export var ground_scene: PackedScene
-@export var gravel_scene: PackedScene
 @export var wisp_scene: PackedScene
 
 const SPAWN_TIME = 1
@@ -24,7 +22,7 @@ func _ready() -> void:
 	var level = WORLD_HEIGHT - FLOOR_HEIGHT
 	var max_height_diff = WORLD_HEIGHT * 0.3
 	for i in 3:
-		generate_floor(level, max_height_diff * 0.3, i)
+		generate_floor(level, max_height_diff * 0.2, i)
 		level -= max_height_diff
 		
 		
@@ -32,8 +30,8 @@ func generate_floor(at_height: float, max_height_diff: float, gaps: int) -> void
 	var current_pos = Vector2(-100, at_height)
 	
 	var LAND_SCENES = [
-			ground_scene,
-			gravel_scene,
+			preload("res://scenes/terrain/land/ground/ground.tscn"),
+			preload("res://scenes/terrain/land/gravel/gravel.tscn"),
 			preload("res://scenes/terrain/land/dirt/dirt.tscn"),
 	]
 	
@@ -51,7 +49,7 @@ func generate_floor(at_height: float, max_height_diff: float, gaps: int) -> void
 			current_pos.x += randf_range(MIN_GAP_WIDTH, MAX_GAP_WIDTH)
 			gap_positions.remove_at(0)
 		
-		var segment_rotation = PI * randf_range(-0.15, 0.15)
+		var segment_rotation = PI * randf_range(-0.1, 0.1)
 		
 		# Instantiate a random land section
 		var land = LAND_SCENES.pick_random().instantiate()

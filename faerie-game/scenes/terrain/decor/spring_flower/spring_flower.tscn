@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://p417ttayk5qg"]
+
+[ext_resource type="Script" uid="uid://rc7aypk2wyns" path="res://scenes/terrain/decor/spring_flower/spring_flower.gd" id="1_edrlv"]
+[ext_resource type="Texture2D" uid="uid://f51l7qeyy7vp" path="res://resources/decor/spring_flower_1.png" id="2_a7c4i"]
+
+[node name="SpringFlower" type="Node2D" unique_id=151367497]
+script = ExtResource("1_edrlv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=935330498]
+position = Vector2(16.000002, -24.000002)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_a7c4i")

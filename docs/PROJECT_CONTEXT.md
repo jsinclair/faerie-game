@@ -314,7 +314,7 @@ Choose based on the concrete terrain implementations rather than abstract archit
 ### Terrain Decoration
 
 - [ ] Add more terrain decoration types.
-- [ ] Move decoration responsibility out of `World`.
+- [x] Move decoration responsibility out of `World`.
 - [ ] Allow each terrain section to decide how/where it can decorate itself.
 - [ ] Test procedural generation with multiple terrain and decoration types.
 
@@ -332,9 +332,9 @@ Terrain should handle local details.
 
 Add a small amount of additional life to the generated world.
 
-- [ ] Add another simple critter.
+- [x] Add another simple critter.
 - [ ] Add a second critter if useful/fun.
-- [ ] Give at least one critter some simple autonomous behaviour.
+- [x] Give at least one critter some simple autonomous behaviour.
 
 Possible behaviours include:
 

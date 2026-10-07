@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://by7v37sk2ybxt"]
 
+[ext_resource type="Script" uid="uid://57seot6r274x" path="res://scenes/terrain/decor/shrub/shrub.gd" id="1_4jqmb"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_32gta"]
 size = Vector2(24, 32)
 
 [node name="Shrub" type="Node2D" unique_id=1084727169]
+script = ExtResource("1_4jqmb")
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=1142334427]
 offset_top = -32.0

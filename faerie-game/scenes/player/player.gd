@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
 const FLIGHT_ACCELERATION = 1400.0
-const MAX_FLIGHT_SPEED = -350.0
+const MAX_FLIGHT_SPEED = -250.0
 const ACCELERATION = 1000.0
 const DECELERATION = 1200.0
-const MAX_SPEED = 400.0
+const MAX_SPEED = 350.0
 const JUMP_VELOCITY = -150.0
 
 func _ready() -> void:

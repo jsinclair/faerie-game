@@ -2,12 +2,25 @@ extends Node2D
 
 const WIDTH = 128
 const HEIGHT = 24
+const SPACE = 10
+const DECOR_CHANCE = 0.2
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+const SPRING_FLOWER = preload("res://scenes/terrain/decor/spring_flower/spring_flower.tscn")
+const SHRUB = preload("res://scenes/terrain/decor/shrub/shrub.tscn")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func decorate() -> void:
+	var decor_options = [
+			SPRING_FLOWER,
+			SHRUB
+	]
+	
+	var x_pos = 0
+	
+	while x_pos < WIDTH:
+		if randf() < DECOR_CHANCE:
+			var decor = decor_options.pick_random().instantiate()
+			decor.position = Vector2(x_pos, 0)
+			add_child(decor)
+			x_pos += decor.WIDTH
+		x_pos += SPACE

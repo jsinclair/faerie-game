@@ -2,7 +2,6 @@ extends Node2D
 
 @export var ground_scene: PackedScene
 @export var gravel_scene: PackedScene
-@export var shrub_scene: PackedScene
 @export var wisp_scene: PackedScene
 
 const SPAWN_TIME = 1
@@ -63,20 +62,8 @@ func generate_floor(at_height: float, max_height_diff: float, gaps: int) -> void
 		
 		land.position = Vector2(current_pos.x, current_pos.y)
 		land.rotation += segment_rotation
+		land.decorate()
 		add_child(land)
-		
-		# Possibly add a shrub
-		if randf() >= 0.4:
-			const shrub_base_width = 24
-			var y_offset = 0
-			if segment_rotation > 0:
-				y_offset += shrub_base_width * sin(segment_rotation)
-			var x_pos_mod = randf_range(0.15, 0.85)
-			var shrub = shrub_scene.instantiate()
-			shrub.position = Vector2(
-					current_pos.x + ((land.WIDTH * x_pos_mod) * cos(segment_rotation)), 
-					current_pos.y + ((land.WIDTH * x_pos_mod) * sin(segment_rotation)) + y_offset)
-			add_child(shrub)
 		
 		current_pos.x += land.WIDTH * cos(segment_rotation)
 		current_pos.y += land.WIDTH * sin(segment_rotation)

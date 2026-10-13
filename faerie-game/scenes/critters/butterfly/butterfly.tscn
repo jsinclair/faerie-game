@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://kcs63c65vr0e"]
 
-[ext_resource type="Script" uid="uid://dleviblpm6gfd" path="res://scenes/enemies/butterfly/butterfly.gd" id="1_wffex"]
+[ext_resource type="Script" uid="uid://dleviblpm6gfd" path="res://scenes/critters/butterfly/butterfly.gd" id="1_wffex"]
 [ext_resource type="Texture2D" uid="uid://cscjwdis0hkte" path="res://resources/critters/butterfly.png" id="1_xogko"]
 [ext_resource type="Texture2D" uid="uid://dd1x7h38bt7ql" path="res://resources/critters/butterfly_flapping.png" id="2_wffex"]
 

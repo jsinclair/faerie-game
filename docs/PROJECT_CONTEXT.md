@@ -313,7 +313,8 @@ Choose based on the concrete terrain implementations rather than abstract archit
 
 ### Terrain Decoration
 
-- [ ] Add more terrain decoration types.
+- [x] Add more terrain decoration types.
+- [ ] Add terrain decorations for different terrain types.
 - [x] Move decoration responsibility out of `World`.
 - [ ] Allow each terrain section to decide how/where it can decorate itself.
 - [ ] Test procedural generation with multiple terrain and decoration types.

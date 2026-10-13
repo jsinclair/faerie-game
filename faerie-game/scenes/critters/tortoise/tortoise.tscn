@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://r738au8q6unf"]
+
+[ext_resource type="Texture2D" uid="uid://fmlkv4q5t7vq" path="res://resources/critters/tortoise.png" id="1_3ih1k"]
+[ext_resource type="Script" uid="uid://wt5gx314rsxg" path="res://scenes/critters/tortoise/tortoise.gd" id="1_4xx5w"]
+[ext_resource type="Texture2D" uid="uid://brumwdv8x1nmf" path="res://resources/critters/tortoise_step_1.png" id="2_4xx5w"]
+[ext_resource type="Texture2D" uid="uid://dtj3a8gytae6h" path="res://resources/critters/tortoise_step_2.png" id="3_rndxj"]
+[ext_resource type="Texture2D" uid="uid://bfmitcbgnrrpi" path="res://resources/critters/tortoise_tail_up.png" id="4_n2lph"]
+[ext_resource type="Texture2D" uid="uid://cwe2ks3i0j8w2" path="res://resources/critters/tortoise_tail_down.png" id="5_h8rnt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_32gta"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3ih1k")
+}],
+"loop": 1,
+"name": &"standing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4xx5w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rndxj")
+}],
+"loop": 1,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kqfgo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_n2lph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_h8rnt")
+}],
+"loop": 1,
+"name": &"wagging",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqfgo"]
+custom_solver_bias = 1.0
+size = Vector2(12, 12)
+
+[node name="Tortoise" type="CharacterBody2D" unique_id=988903020]
+script = ExtResource("1_4xx5w")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=898096311]
+position = Vector2(-1.7000008, -30.3)
+polygon = PackedVector2Array(0, 0, 9.700001, 0.29999924, 16, 2, 22, 4, 21.7, 13.299999, 17, 19, 16, 29, -9, 29, -11, 20, -19, 14, -19, 3, -11, 1)
+metadata/_edit_group_ = true
+
+[node name="Visuals" type="Node2D" parent="." unique_id=433615511]
+
+[node name="BodySprite" type="AnimatedSprite2D" parent="Visuals" unique_id=1690261619]
+position = Vector2(-4.699997, -16.3)
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_32gta")
+animation = &"walking"
+metadata/_edit_group_ = true
+
+[node name="TailSprite" type="AnimatedSprite2D" parent="Visuals" unique_id=440132377]
+position = Vector2(-4.699997, -16.3)
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_kqfgo")
+animation = &"wagging"
+metadata/_edit_group_ = true
+
+[node name="EdgeDetector" type="ShapeCast2D" parent="." unique_id=1720279417]
+shape = SubResource("RectangleShape2D_kqfgo")
+target_position = Vector2(0, 20)

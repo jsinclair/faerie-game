@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dk2v05sg3ek33"]
 
-[ext_resource type="Script" uid="uid://b1dre1hrp64r1" path="res://scenes/enemies/wisp/wisp.gd" id="1_5cohn"]
+[ext_resource type="Script" uid="uid://b1dre1hrp64r1" path="res://scenes/critters/wisp/wisp.gd" id="1_5cohn"]
 
 [node name="Wisp" type="Node2D" unique_id=1060238714]
 script = ExtResource("1_5cohn")

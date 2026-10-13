@@ -22,7 +22,7 @@ func _ready() -> void:
 	var level = WORLD_HEIGHT - FLOOR_HEIGHT
 	var max_height_diff = WORLD_HEIGHT * 0.3
 	for i in 3:
-		generate_floor(level, max_height_diff * 0.2, i)
+		generate_floor(level, max_height_diff * 0.2, i + 8)
 		level -= max_height_diff
 		
 		
@@ -49,7 +49,7 @@ func generate_floor(at_height: float, max_height_diff: float, gaps: int) -> void
 			current_pos.x += randf_range(MIN_GAP_WIDTH, MAX_GAP_WIDTH)
 			gap_positions.remove_at(0)
 		
-		var segment_rotation = PI * randf_range(-0.1, 0.1)
+		var segment_rotation = PI * randf_range(-0.05, 0.05)
 		
 		# Instantiate a random land section
 		var land = LAND_SCENES.pick_random().instantiate()
@@ -85,7 +85,7 @@ func _process(delta: float) -> void:
 			wisp.modulate.a = 0
 			add_child(wisp)
 		else:
-			var butterfly = preload("res://scenes/enemies/butterfly/butterfly.tscn").instantiate()
+			var butterfly = preload("res://scenes/critters/butterfly/butterfly.tscn").instantiate()
 			butterfly.position = Vector2(
 				randf_range(0, 1152),
 				randf_range(0, 648)

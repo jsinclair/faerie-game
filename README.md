@@ -1,6 +1,6 @@
 # Faerie Game
 
-**Faerie Game** is a small 2D platformer being developed in Godot using hand-drawn artwork created by my daughter, Hannah.
+**Faerie Game** is a small 2D platformer being developed in Godot using hand-drawn artwork created by my daughter.
 
 The artwork is drawn on paper, scanned, cleaned up where necessary, and used directly in the game. The rough edges and inconsistencies are intentional — preserving the character of the original drawings is part of the point.
 

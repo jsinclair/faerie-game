@@ -22,7 +22,7 @@ func _ready() -> void:
 	var level = WORLD_HEIGHT - FLOOR_HEIGHT
 	var max_height_diff = WORLD_HEIGHT * 0.3
 	for i in 3:
-		generate_floor(level, max_height_diff * 0.2, i + 8)
+		generate_floor(level, max_height_diff * 0.2, i)
 		level -= max_height_diff
 		
 		

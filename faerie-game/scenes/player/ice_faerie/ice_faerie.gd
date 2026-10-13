@@ -11,7 +11,7 @@ func _physics_process(delta: float) -> void:
 	    "move_down"
 	)
 	
-	if not is_on_floor() and move_input != Vector2.ZERO:
+	if not is_on_floor() and (move_input != Vector2.ZERO or hover):
 		$AnimatedSprite2D.play("flying")
 	else:
 		$AnimatedSprite2D.play("standing")

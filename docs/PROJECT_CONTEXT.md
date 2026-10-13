@@ -334,7 +334,7 @@ Terrain should handle local details.
 Add a small amount of additional life to the generated world.
 
 - [x] Add another simple critter.
-- [ ] Add a second critter if useful/fun.
+- [x] Add a second critter if useful/fun.
 - [x] Give at least one critter some simple autonomous behaviour.
 
 Possible behaviours include:

@@ -52,7 +52,7 @@ script = ExtResource("1_4xx5w")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=898096311]
 position = Vector2(-1.7000008, -30.3)
-polygon = PackedVector2Array(0, 0, 9.700001, 0.29999924, 16, 2, 22, 4, 21.7, 13.299999, 17, 19, 16, 29, -9, 29, -11, 20, -19, 14, -19, 3, -11, 1)
+polygon = PackedVector2Array(0, 0, 9.700001, 0.29999924, 16, 2, 22.7, 4.299999, 22.7, 8.299999, 22.7, 13.299999, 17, 19, 16, 29, -9, 29, -11, 20, -19, 14, -19, 3, -11, 1)
 metadata/_edit_group_ = true
 
 [node name="Visuals" type="Node2D" parent="." unique_id=433615511]

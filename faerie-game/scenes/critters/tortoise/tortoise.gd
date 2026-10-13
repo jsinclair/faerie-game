@@ -52,7 +52,6 @@ func _physics_process(delta: float) -> void:
 	update_rotation(delta)
 	update_edge_detector()
 	update_behaviour(delta)
-	print(activity)
 
 
 func handle_wagging(delta: float) -> void:
@@ -96,4 +95,4 @@ func update_behaviour(delta: float) -> void:
 	if activity_duration <= 0:
 		activity_duration += randf_range(min_pause_time, max_pause_time)
 		activity = Activity.WALKING if randf() < 0.6 else Activity.RESTING
-		direction = direction if randf() < 0.4 else -direction
+		direction = direction if randf() < 0.3 else -direction

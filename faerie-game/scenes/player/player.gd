@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 const FLIGHT_ACCELERATION = 1000.0
 const MAX_FLIGHT_SPEED = -150.0

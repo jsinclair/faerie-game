@@ -13,6 +13,10 @@ const MAX_GAP_WIDTH = 100
 
 var make_wisp = true
 
+const FEATHER_SCENE = preload("res://scenes/objectives/feather/feather.tscn")
+var total_feathers = 0
+var feathers_remaining = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var player = CharacterData.selected_character.instantiate()
@@ -24,8 +28,8 @@ func _ready() -> void:
 	for i in 3:
 		generate_floor(level, max_height_diff * 0.2, i)
 		level -= max_height_diff
-		
-		
+
+
 func generate_floor(at_height: float, max_height_diff: float, gaps: int) -> void:
 	var current_pos = Vector2(-100, at_height)
 	
@@ -63,8 +67,27 @@ func generate_floor(at_height: float, max_height_diff: float, gaps: int) -> void
 		land.decorate()
 		add_child(land)
 		
-		current_pos.x += land.WIDTH * cos(segment_rotation)
+		var x_increase = land.WIDTH * cos(segment_rotation)
+		
+		if current_pos.x + x_increase >= WORLD_WIDTH:
+			var feather_position = current_pos
+			feather_position.x -= x_increase / 2
+			feather_position.y -= max_height_diff * 2
+			spawn_feather(feather_position)
+		
+		current_pos.x += x_increase
 		current_pos.y += land.WIDTH * sin(segment_rotation)
+
+
+func spawn_feather(feather_position: Vector2) -> void:
+	var feather = FEATHER_SCENE.instantiate()
+
+	feather.position = feather_position
+	feather.collected.connect(_on_feather_collected)
+
+	add_child(feather)
+	feathers_remaining += 1
+	total_feathers += 1
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -97,3 +120,12 @@ func _process(delta: float) -> void:
 
 func _on_hud_leave_game() -> void:
 	get_tree().change_scene_to_file("res://scenes/menus/main/main.tscn")
+
+
+func _on_feather_collected() -> void:
+	feathers_remaining -= 1
+
+	print("%d/%d" % [total_feathers - feathers_remaining, total_feathers])
+	if feathers_remaining == 0:
+		pass
+		#win()

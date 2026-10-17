@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b2sw4cs6pmhdq"]
+
+[ext_resource type="Script" uid="uid://cf1uup8u5hs58" path="res://scenes/objectives/feather/feather.gd" id="1_trflc"]
+[ext_resource type="Texture2D" uid="uid://2l8urlw0if4x" path="res://resources/feathers/yellow_feather.png" id="2_xtv6d"]
+
+[node name="Feather" type="Area2D" unique_id=1726522084]
+script = ExtResource("1_trflc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1283879155]
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_xtv6d")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1203113582]
+position = Vector2(4, -24)
+polygon = PackedVector2Array(3, 4, 5, 10, 6, 17, 6, 25, 5, 28, 1, 33, -1, 36, -1, 45, -1, 48, -3, 49, -5, 48, -4, 38, -6, 37, -10, 28, -15, 16, -12, 11, -4, 3, -1, 0, 1, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

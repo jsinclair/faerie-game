@@ -19,6 +19,8 @@ var feathers_remaining = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GameData.game_result = GameData.GameResult.NONE
+	
 	var player = CharacterData.selected_character.instantiate()
 	player.position = Vector2(328, 288)
 	add_child(player)
@@ -41,10 +43,12 @@ func generate_floor(at_height: float, max_height_diff: float, gaps: int) -> void
 	
 	var gap_positions := []
 	if gaps > 0:
-		var max_gap_range = WORLD_WIDTH / gaps
+		const GAP_OFFSET = 30
+		var max_gap_range = (WORLD_WIDTH - (GAP_OFFSET * 2)) / gaps
 		for i in gaps:
+			var current_gap_offset = GAP_OFFSET if i == 0 else 0
 			gap_positions.append(randf_range(
-					i * max_gap_range,
+					(i * max_gap_range) + current_gap_offset,
 					(i + 1) * max_gap_range))
 	
 	while current_pos.x < WORLD_WIDTH:
@@ -127,5 +131,5 @@ func _on_feather_collected() -> void:
 
 	print("%d/%d" % [total_feathers - feathers_remaining, total_feathers])
 	if feathers_remaining == 0:
-		pass
-		#win()
+		GameData.game_result = GameData.GameResult.WON
+		get_tree().change_scene_to_file("res://scenes/menus/game_over/game_over.tscn")

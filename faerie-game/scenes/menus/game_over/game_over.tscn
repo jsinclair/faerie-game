@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://2p7cv8q5xlxo"]
+
+[ext_resource type="Script" uid="uid://wmunmwpn5bew" path="res://scenes/menus/game_over/game_over.gd" id="1_mqa2j"]
+[ext_resource type="PackedScene" uid="uid://dqr643aik2i0e" path="res://scenes/terrain/land/ground/ground.tscn" id="2_5c1x1"]
+[ext_resource type="PackedScene" uid="uid://r738au8q6unf" path="res://scenes/critters/tortoise/tortoise.tscn" id="3_wm3mh"]
+[ext_resource type="PackedScene" uid="uid://p417ttayk5qg" path="res://scenes/terrain/decor/spring_flower/spring_flower.tscn" id="4_3lhei"]
+
+[node name="GameOver" type="Control" unique_id=1300294395]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mqa2j")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=676443724]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1221626761]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer/MarginContainer" unique_id=840304229]
+layout_mode = 2
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="MessageLabel" type="Label" parent="VBoxContainer" unique_id=1260004911]
+layout_mode = 2
+text = "Game Over Message"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=136365066]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="Button" type="Button" parent="MarginContainer" unique_id=1222535690]
+layout_mode = 2
+text = "Finish"
+
+[node name="Node2D" type="Node2D" parent="." unique_id=87564848]
+position = Vector2(510, 468)
+
+[node name="Ground" parent="Node2D" unique_id=1487645526 instance=ExtResource("2_5c1x1")]
+
+[node name="SpringFlower" parent="Node2D" unique_id=151367497 instance=ExtResource("4_3lhei")]
+
+[node name="Tortoise" parent="Node2D" unique_id=988903020 instance=ExtResource("3_wm3mh")]
+position = Vector2(62, -1)
+
+[connection signal="pressed" from="MarginContainer/Button" to="." method="_on_finish_button_pressed"]

@@ -442,11 +442,11 @@ Start with the simplest useful objective:
 
 > **Reach the end of the generated level.**
 
-- [ ] Create a simple level-end goal/trigger.
-- [ ] Ensure procedural generation leaves a valid end area.
-- [ ] Detect when the player reaches the goal.
-- [ ] Present simple success/completion feedback.
-- [ ] Provide a way to continue or return to the menu.
+- [x] Create a simple level-end goal/trigger.
+- [x] Ensure procedural generation leaves a valid end area.
+- [x] Detect when the player reaches the goal.
+- [x] Present simple success/completion feedback.
+- [x] Provide a way to continue or return to the menu.
 
 The goal can later become something more thematic, such as:
 

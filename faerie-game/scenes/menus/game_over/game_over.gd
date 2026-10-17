@@ -9,7 +9,7 @@ func _ready() -> void:
 			$VBoxContainer/MessageLabel.text = "You collected all the feathers, well done!"
 		GameData.GameResult.LOST:
 			$VBoxContainer/MarginContainer/TitleLabel.text = "Game Over!"
-			$VBoxContainer/MessageLabel.text = ""
+			$VBoxContainer/MessageLabel.text = "Better luck next time!"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

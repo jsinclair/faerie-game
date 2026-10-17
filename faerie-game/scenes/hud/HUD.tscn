@@ -19,6 +19,8 @@ anchor_right = 1.0
 offset_left = -40.0
 offset_bottom = 40.0
 grow_horizontal = 0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
 
 [node name="Button" type="Button" parent="MarginContainer" unique_id=331739006]
 layout_mode = 2
